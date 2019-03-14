@@ -4,10 +4,11 @@
   "description": "Readers want to be able to access the library without coming to the library. They want a convenient way of borrowing books hence the birth of Library Books. Library books allow users to be able to borrow books from a library.",
   "main": "app.js",
   "scripts": {
-    "start": "babel-node app.js",
-    "start:dev": "nodemon app.js  --exec babel-node",
+    "start": "npm run build && node dist/app.js",
+    "build": "babel server/src -d dist",
+    "start:dev": "nodemon server/src/app.js --exec babel-node",
     "pretest": "export NODE_ENV=test || SET \"NODE_ENV=test\" && npm run migrate",
-    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && nyc mocha test/**/*.test.js --timeout 20000 --require babel-register --exit"
+    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && nyc mocha test/**/*.test.js --timeout 20000 --require @babel/register --exit"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,11 @@
   },
   "homepage": "https://github.com/Akinmyde/library-backend#readme",
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
     "babel-register": "^6.26.0",
     "eslint": "^5.15.1",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -28,9 +34,6 @@
     "nodemon": "^1.18.10"
   },
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.2",
     "cors": "^2.8.5",

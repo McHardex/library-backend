@@ -4,14 +4,14 @@ import cors from 'cors';
 import chalk from 'chalk';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.all('*', (req, res) => {
-  res.send({ status: 404, error: 'Sorry, the page you tried cannot be found' });
+  res.status('404').json({ status: 404, error: 'Sorry, the page you tried cannot be found' });
 });
 
 if (!module.parent) {
