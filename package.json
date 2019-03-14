@@ -4,7 +4,7 @@
   "description": "Readers want to be able to access the library without coming to the library. They want a convenient way of borrowing books hence the birth of Library Books. Library books allow users to be able to borrow books from a library.",
   "main": "app.js",
   "scripts": {
-    "start": "npm run build && node dist/server/src/app.js",
+    "start": "npm run build && node dist/app.js",
     "build": "babel server/src -d dist",
     "start:dev": "nodemon server/src/app.js --exec babel-node",
     "pretest": "export NODE_ENV=test || SET \"NODE_ENV=test\" && npm run migrate",

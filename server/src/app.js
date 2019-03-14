@@ -4,7 +4,7 @@ import cors from 'cors';
 import chalk from 'chalk';
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
