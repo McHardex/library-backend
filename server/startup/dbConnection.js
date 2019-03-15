@@ -1,17 +1,10 @@
-/* eslint-disable no-console */
-import Sequelize from 'sequelize';
+const dbConnection = (sequelize, config) => {
+  sequelize
+    .authenticate()
+    .then(() => {
+      console.log('connection to the database established', config);
+    })
+    .catch(err => console.log('error connecting to the database', err));
+};
 
-import configSetup from '../config/config';
-
-const env = process.env.NODE_ENV || 'development';
-const config = configSetup[env];
-
-const sequelize = new Sequelize(config);
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('connected', config);
-  })
-  .catch(err => console.log('error', err));
-
-exports.sequelize = sequelize;
+export default dbConnection;
