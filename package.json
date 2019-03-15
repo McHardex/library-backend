@@ -7,7 +7,6 @@
     "start": "npm run build && node dist/app.js",
     "build": "babel server/src -d dist",
     "start:dev": "nodemon server/src/app.js --exec babel-node",
-    "pretest": "export NODE_ENV=test || SET \"NODE_ENV=test\"",
     "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && nyc mocha test/**/*.test.js --timeout 20000 --require @babel/register --exit"
   },
   "repository": {
